@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from Permutations.Factorial import Factorial as F
+from Permutation.Factorial import Factorial as F
 
 
 def SimplePermutation():
