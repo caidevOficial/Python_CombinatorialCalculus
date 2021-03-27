@@ -113,7 +113,10 @@ def ShowNewSkill():
 ---
 
 ## License 📄
-This project is under license \[MIT License\] - read the file [LICENSE.md](LICENSE) for details.
+This project is under license \[MIT License\], for more details read the file -> [LICENSE.md](LICENSE) .
+
+## Releases 📌
+You can find the differents versions or releases in the following link -> [Releases](https://github.com/caidevOficial/Python_CombinatorialCalculus/releases)
 
 ---
 
