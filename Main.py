@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import os
 from Permutation import Permutations as P
 from Combination import Combinations as C
 from Variation import Variations as V
@@ -39,25 +40,50 @@ def SelectOperation(option: int):
             V.CompoundVariation()
         elif option == 6:
             C.CompoundCombinatory()
+        else:
+            print("Invalid option selected, please try again.")
     except Exception as e:
         print(f"Error: {e}")
 
-
-def CombinatorialCalculus():
-    appName = "Combinatorial Calculus"
-    version = "v1.2.0"
-    author = "Facu Falcone"
+def PrintMenu()->int:
+    """
+    Prints in console the menu of the app.
+    """
+    option = 0
     print("Select an option from the ones below")
     print("1 - Simple Permutation.\n2 - Simple Variation.\n3 - Simple Combination.")
     print("4 - Compound Permutation.\n5 - Compound Variation.\n6 - Compound Combination.")
     try:
         option = int(input("Your option: "))
-        SelectOperation(option)
-        exit = input("\nExecution finished, please press a key to close the program...")
     except Exception as e:
         print(f"Error: {e}")
     finally:
+        return option
+
+def CleanScreen():
+    """
+    Cleans the screen.
+    """
+    return lambda: os.system('cls')
+
+def CombinatorialCalculus():
+    appName = "Combinatorial Calculus"
+    version = "v1.2.0"
+    author = "Facu Falcone"
+    continueExec = "y"
+    
+    while continueExec=='y':
         print(f"\n## {appName} {version} by {author}. ##\n")
+        print("#################################")
+        
+        option = PrintMenu()
+        SelectOperation(option)
+
+        print("#################################")
+        continueExec = input("\nWrite Y to do another calculus or N to close the app: ")
+        continueExec = continueExec.lower()
+        CleanScreen()
+        
 
 
 if __name__ == '__main__':
