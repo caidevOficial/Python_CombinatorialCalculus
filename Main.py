@@ -53,6 +53,7 @@ def CombinatorialCalculus():
     try:
         option = int(input("Your option: "))
         SelectOperation(option)
+        exit = input("\nExecution finished, please press a key to close the program...")
     except Exception as e:
         print(f"Error: {e}")
     finally:
