@@ -11,7 +11,7 @@
 
 ---
 
-# Combinatory Calculus PyApp. 🧮👨‍💻
+# Combinatorial Calculus PyApp. 🧮👨‍💻
 ---
 
 <details>
@@ -34,7 +34,7 @@ def ShowNewSkill():
 
 # How to use it: ⤵️
 
-#### ▶️ **Run the [Main.py](Main.py)** and choose from the listed options.
+#### ▶️ **Run the [Main.exe]** and choose from the listed options.
 <table>
     <th>Menu of the App</th>
     <tr>
