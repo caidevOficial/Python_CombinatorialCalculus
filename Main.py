@@ -82,7 +82,7 @@ def CombinatorialCalculus():
         print("#################################")
         continueExec = input("\nWrite Y to do another calculus or N to close the app: ")
         continueExec = continueExec.lower()
-        CleanScreen()
+        CleanScreen()()
         
 
 
