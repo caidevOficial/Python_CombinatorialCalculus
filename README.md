@@ -74,9 +74,9 @@ def ShowNewSkill():
     </tr>
 </table>
 
-▶️ By **selecting option 4**, you will be able to perform the calculation through a _Composed Permutation_ using the formula: ⤵️
+▶️ By **selecting option 4**, you will be able to perform the calculation through a _Compound Permutation_ using the formula: ⤵️
 <table>
-    <th>Composed Permutation's Formula</th>
+    <th>Compound Permutation's Formula</th>
     <tr>
         <td>
             <img alt= "Menu" src="Media/img/CPF.png" height="80px">
@@ -84,9 +84,9 @@ def ShowNewSkill():
     </tr>
 </table>
 
-▶️ By **selecting option 5**, you will be able to perform the calculation through a _Composed Variation_ using the formula: ⤵️
+▶️ By **selecting option 5**, you will be able to perform the calculation through a _Compound Variation_ using the formula: ⤵️
 <table>
-    <th>Composed Variation's Formula</th>
+    <th>Compound Variation's Formula</th>
     <tr>
         <td>
             <img alt= "Menu" src="Media/img/CVF.png" height="80px">
@@ -94,9 +94,9 @@ def ShowNewSkill():
     </tr>
 </table>
 
-▶️ By **selecting option 6**, you will be able to perform the calculation through a _Composed Combination_ using the formula: ⤵️
+▶️ By **selecting option 6**, you will be able to perform the calculation through a _Compound Combination_ using the formula: ⤵️
 <table>
-    <th>Composed Combination's Formula</th>
+    <th>Compound Combination's Formula</th>
     <tr>
         <td>
             <img alt= "Menu" src="Media/img/CCF.png" height="80px">
@@ -104,6 +104,16 @@ def ShowNewSkill():
     </tr>
 </table>
 
+When using each of the methods, the application will show you the chosen variables, the formula with those variables and of course, the result of said equation.
+
+<table>
+    <th>Compound Permutation's Sample</th>
+    <tr>
+        <td>
+            <img alt= "Menu" src="Media/img/CP_sample.jpeg" height="200px">
+        </td>
+    </tr>
+</table>
 
 ---
 ## Technologies used. 📌
