@@ -29,7 +29,7 @@ def SimplePermutation():
     """
     print("\n###### Simple Permutation #######")
     try:
-        print("Pn = n!")
+        print("###### Pn = n! ######")
         numberN = int(input("Value for n: "))
         try:
             fact = F(numberN)
@@ -50,10 +50,11 @@ def ComposedPermutation():
     dividend = 1
     listCases = []
     formulaTop = "("
-    formulaBot = ""
+    formulaBot = " "
+    
     print("\n###### Compound Permutation #######")
     try:
-        print("P n1, n2 ..nn = (n1 + n2 + ..nn) / (n1)! (n2)! ..(nn)!")
+        print("###### P n1, n2 ..nn = (n1 + n2 + ..nn) / (n1)! (n2)! ..(nn)! ######")
         number = int(input("Amount of Variables: "))
         for case in range(1, number+1):
             listCases.append(int(input(f"Value for {case}° n: ")))
@@ -61,14 +62,21 @@ def ComposedPermutation():
 
         for case in listCases:
             dividend *= F(case)
-            formulaBot += str(case) + "!"
+            formulaBot += str(case) + "!  "
+            
             if listCases.index(case) == (len(listCases)-1):
-                formulaTop += str(case) + ")!"
+                formulaTop += str(case) + ")!\n"
             else:
                 formulaTop += str(case) + " + "
 
-        print(f"Compound Permutation of {number} variables: ")
-        print(f"Formula: {formulaTop} / {formulaBot}")
-        print(f"Result: {F(sumCases) / dividend}")
+        middle = "-"*(4*number) + "\n"
+        fullFormula = formulaTop + middle + formulaBot
+        print(f"\n#### Compound Permutation of {number} variables: ")
+        print(f"#### Formula: ")
+        print(fullFormula)
+        print(f"#### Result: {F(sumCases) / dividend}")
     except Exception as e:
         print(f"Error: {e}")
+#(1 + 2 + 5 + 6 + 7)!
+#--------------------
+# 1! 2! 3! 5! 6! 7!

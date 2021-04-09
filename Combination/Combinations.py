@@ -30,13 +30,13 @@ def SimpleCombinatory():
     """
     try:
         print("\n###### Simple Combinatory #######")
-        print("C(n, k)")
+        print("###### C(n, k) ######")
         numberN = int(input("Value for n: "))
         numberK = int(input("Value for k: "))
         n = F(numberN)
         k = F(numberK) * F((numberN - numberK))
         print(f"Simple Combination of C({numberN},{numberK}): ")
-        print(f"Formula: {n}! / ( {k}! * ({n-k})! )")
+        print(f"Formula: {numberN}! / ( {numberK}! * ({numberN-numberK})! )")
         print(f"Result: {n/k}")
     except Exception as e:
         print(f"Error: {e}")
@@ -49,7 +49,7 @@ def CompoundCombinatory():
     """
     print("\n###### Compound Combinatory #######")
     try:
-        print("C'(n, k)")
+        print("###### C'(n, k) ######")
         numberN = int(input("Value for n: "))
         numberK = int(input("Value for k: "))
         n = numberN + numberK - 1

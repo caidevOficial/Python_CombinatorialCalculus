@@ -26,7 +26,26 @@ from Combination import Combinations as C
 from Variation import Variations as V
 
 
+def PrintMenu() -> int:
+    """
+    Prints in console the menu of the app.
+    """
+    option = 0
+    print("Select an option from the ones below")
+    print("1 - Simple Permutation.\n2 - Simple Variation.\n3 - Simple Combination.")
+    print("4 - Compound Permutation.\n5 - Compound Variation.\n6 - Compound Combination.")
+    try:
+        option = int(input("Your option: "))
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        return option
+
+
 def SelectOperation(option: int):
+    """
+    Receives an integer to do any of the 6 functions of the combinatorial calculus.
+    """
     try:
         if option == 1:
             P.SimplePermutation()
@@ -45,20 +64,6 @@ def SelectOperation(option: int):
     except Exception as e:
         print(f"Error: {e}")
 
-def PrintMenu()->int:
-    """
-    Prints in console the menu of the app.
-    """
-    option = 0
-    print("Select an option from the ones below")
-    print("1 - Simple Permutation.\n2 - Simple Variation.\n3 - Simple Combination.")
-    print("4 - Compound Permutation.\n5 - Compound Variation.\n6 - Compound Combination.")
-    try:
-        option = int(input("Your option: "))
-    except Exception as e:
-        print(f"Error: {e}")
-    finally:
-        return option
 
 def CleanScreen():
     """
@@ -66,24 +71,24 @@ def CleanScreen():
     """
     return lambda: os.system('cls')
 
+
 def CombinatorialCalculus():
     appName = "Combinatorial Calculus"
-    version = "v1.5.007"
+    version = "v1.5.008"
     author = "Facu Falcone"
     continueExec = "y"
-    
-    while continueExec=='y':
+
+    while continueExec == 'y':
         print(f"\n## {appName} {version} by {author}. ##\n")
         print("#################################")
-        
-        option = PrintMenu()
-        SelectOperation(option)
+
+        SelectOperation(PrintMenu())
 
         print("#################################")
-        continueExec = input("\nWrite Y to do another calculus or N to close the app: ")
+        print("Write Y to do another calculus or N to close the app.")
+        continueExec = input("\nYour option (Y/N): ")
         continueExec = continueExec.lower()
         CleanScreen()()
-        
 
 
 if __name__ == '__main__':
