@@ -131,6 +131,7 @@ You can find the differents versions or releases in the following link -> [Relea
 ---
 
 ## Where to find me: 🌎
+<<<<<<< HEAD
 
 <table>
   <theader>
@@ -164,3 +165,11 @@ You can find the differents versions or releases in the following link -> [Relea
     </tr>
   </tbody>
 </table>
+=======
+|<img class="circular" alt="Facu" src="https://avatars1.githubusercontent.com/u/12877139?s=400&u=d369ee24466653d9bbeeb9654930e3ff1c67b76a&v=4" width="80px" height="80px" />||
+|------------|------------|
+|🤴 Facu Falcone|Junior Developer|
+|<img alt="GitHub" src="https://img.shields.io/badge/GitHub-%2312100E.svg?&style=for-the-badge&logo=Github&logoColor=white" width="95px" height="30px" />|<center><a href="https://github.com/caidevOficial/">Github</a></center>|
+|<img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" width="95px" height="30px" />|<center><a href="https://www.linkedin.com/in/facundo-falcone/">LinkedIn</a></center>|
+|<img alt='Invitame un café en cafecito.app' srcset='https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_5.png' width="95px" height="30px" />|<center><a href="https://cafecito.app/caidevoficial/">CafecitoApp</a></center>|
+>>>>>>> 3143bc0fc487593986b2b4165026f964ec609d3c
