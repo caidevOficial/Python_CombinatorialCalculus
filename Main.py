@@ -21,46 +21,60 @@
 # SOFTWARE.
 
 import os
-from Permutation import Permutations as P
-from Combination import Combinations as C
-from Variation import Variations as V
+
+from Combination_Mod.Combination_Obj import Combination as C
+from Permutation_Mod.Permutation_Obj import Permutation as P
+from Variation_Mod.Variations_Obj import Variation as V
+from Message_Mod.Message_Obj import Message as M
 
 
 def PrintMenu() -> int:
     """
     Prints in console the menu of the app.
     """
+    mess = M()
     option = 0
-    print("Select an option from the ones below")
-    print("1 - Simple Permutation.\n2 - Simple Variation.\n3 - Simple Combination.")
-    print("4 - Compound Permutation.\n5 - Compound Variation.\n6 - Compound Combination.")
+    mess.createPrint(
+        "Select an option from the ones below",
+        "1 - Simple Permutation.", 
+        "2 - Simple Variation.", 
+        "3 - Simple Combination.",
+        "4 - Compound Permutation.", 
+        "5 - Compound Variation.", 
+        "6 - Compound Combination."
+    )
+
     try:
-        option = int(input("Your option: "))
+        option = int(input("###### Your option: ").strip())
     except Exception as e:
         print(f"Error: {e}")
     finally:
         return option
 
 
-def SelectOperation(option: int):
+def SelectOperation(option: int) -> None:
     """
     Receives an integer to do any of the 6 functions of the combinatorial calculus.
     """
+    perm = P()
+    vari = V()
+    comb = C()
+    CleanScreen()
     try:
         if option == 1:
-            P.SimplePermutation()
+            perm.SimplePermutation()
         elif option == 2:
-            V.SimpleVariation()
+            vari.SimpleVariation()
         elif option == 3:
-            C.SimpleCombinatory()
+            comb.SimpleCombinatory()
         elif option == 4:
-            P.ComposedPermutation()
+            perm.ComposedPermutation()
         elif option == 5:
-            V.CompoundVariation()
+            vari.CompoundVariation()
         elif option == 6:
-            C.CompoundCombinatory()
+            comb.CompoundCombinatory()
         else:
-            print("Invalid option selected, please try again.")
+            print("###### Invalid option selected, please try again.")
     except Exception as e:
         print(f"Error: {e}")
 
@@ -74,21 +88,24 @@ def CleanScreen():
 
 def CombinatorialCalculus():
     appName = "Combinatorial Calculus"
-    version = "v1.5.008"
+    version = "v1.5.10"
     author = "Facu Falcone"
     continueExec = "y"
+    mess = M()
 
     while continueExec == 'y':
-        print(f"\n## {appName} {version} by {author}. ##\n")
-        print("#################################")
+        mess.createPrint(
+            f"{appName}",
+            f"{version}",
+            f"by {author}."
+        )
 
         SelectOperation(PrintMenu())
 
-        print("#################################")
-        print("Write Y to do another calculus or N to close the app.")
-        continueExec = input("\nYour option (Y/N): ")
+        print("###### Write Y to do another calculus or N to close the app.")
+        continueExec = input("###### Your option (Y/N): ")
         continueExec = continueExec.lower()
-        CleanScreen()()
+        CleanScreen()
 
 
 if __name__ == '__main__':
