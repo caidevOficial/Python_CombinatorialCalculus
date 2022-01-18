@@ -73,7 +73,7 @@ class Permutation:
 
         mess.createPrint(
             'Composed Permutation #######',
-            "P n1, n2 ..nn = (n1 + n2 + ..nn) / (n1)! (n2)! ..(nn)! ######"
+            "P' n1, n2 ..nn = (n1 + n2 + ..nn) / (n1)! (n2)! ..(nn)! ######"
         )
 
         try:
@@ -93,10 +93,10 @@ class Permutation:
                     formulaTop += f"{case} + "
 
             middle = "-"*(4*number) + "\n"
-            fullFormula = formulaTop + middle + formulaBot
+            fullFormula = f"{formulaTop}{middle}{formulaBot}"
             factorial.set_number(sumCases)
             mess.createPrint(
-                f"Compound Permutation of {number} variables: ",
+                f"Composed Permutation of {number} variables: ",
                 f"Formula: \n{fullFormula}",
                 f"Result: {factorial.CalculateFactorial() / dividend}"
             )
