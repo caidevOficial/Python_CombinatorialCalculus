@@ -88,7 +88,7 @@ def CleanScreen():
 
 def CombinatorialCalculus():
     appName = "Combinatorial Calculus"
-    version = "v1.5.10"
+    version = "v1.5.12"
     author = "Facu Falcone"
     continueExec = "y"
     mess = M()
