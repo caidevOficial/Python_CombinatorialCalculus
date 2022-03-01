@@ -30,10 +30,35 @@ class Factorial:
     Returns:
         [class]: [Factorial]
     """
-    __number = None
+    __number: int = None
 
-    def __init__(self, number) -> None:
-        self.set_number(number)
+    def __init__(self, number: int) -> None:
+        self.Number = number
+
+    @property
+    def Number(self) -> int:
+        """[summary]
+        Gets the number to be calculated.
+        Returns:
+            int: [Number to be calculated]
+        """
+        return self.__number
+
+    @Number.setter
+    def Number(self, number: int) -> None:
+        """[summary]
+        Sets the number to be calculated.
+        Args:
+            number (int): [Number to be calculated]
+
+        Raises:
+            ValueError: [Factorial must be a integer]
+        """
+        if not isinstance(number, int):
+            raise ValueError(
+                "CalculateFactorial() only accepts integral values")
+        else:
+            self.__number = number
 
     def CalculateFactorial(self) -> int:
         """
@@ -52,38 +77,15 @@ class Factorial:
         ValueError: CalculateFactorial() not defined for negative values
         """
 
-        if self.get_number() < 0:
+        if self.Number < 0:
             raise ValueError(
                 "CalculateFactorial() not defined for negative values")
 
-        if self.get_number() == 0 or self.get_number() == 1:
+        elif self.Number == 0 or self.Number == 1:
             return 1
         else:
-            fact = self.get_number()
-            self.set_number(fact - 1)
-            fact = fact * self.CalculateFactorial()
+            fact = self.Number
+            self.Number = (fact - 1)
+            fact *= self.CalculateFactorial()
 
             return fact
-
-    def set_number(self, newNumber) -> None:
-        """[summary]
-        Sets the number to be calculated.
-        Args:
-            newNumber (int): [Number to be calculated]
-
-        Raises:
-            ValueError: [Factorial must be a integer]
-        """
-        if not isinstance(newNumber, int):
-            raise ValueError(
-                "CalculateFactorial() only accepts integral values")
-        else:
-            self.__number = newNumber
-
-    def get_number(self) -> int:
-        """[summary]
-        Gets the number to be calculated.
-        Returns:
-            int: [Number to be calculated]
-        """
-        return self.__number

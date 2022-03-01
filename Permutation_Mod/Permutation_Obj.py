@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from Permutation_Mod.Factorial_Obj import Factorial as F
+from Permutation_Mod.Factorial_Obj import Factorial as Facto
 from Message_Mod.Message_Obj import Message as M
 
 
@@ -31,8 +31,29 @@ class Permutation:
         [class]: [Permutation]
     """
 
+    __PERM_MAIN: str = "P' n1, n2 ..nn = "
+    __PERM_TOP:str = " (n1 + n2 + ..nn) "
+    __PERM_MID: str = '_'*len(__PERM_TOP)
+    __PERM_BOT:str = "(n1)! (n2)!..(nn)!"
+
     def __init__(self):
         pass
+
+    @property
+    def PermMain(self):
+        return self.__PERM_MAIN
+    
+    @property
+    def PermTop(self):
+        return self.__PERM_TOP
+
+    @property
+    def PermMid(self):
+        return self.__PERM_MID
+
+    @property
+    def PermBot(self):
+        return self.__PERM_BOT
 
     def SimplePermutation(self):
         """
@@ -47,7 +68,7 @@ class Permutation:
 
             numberN = int(input("###### Value for n: ").strip())
             try:
-                factorial = F(numberN)
+                factorial = Facto(numberN)
                 fact = factorial.CalculateFactorial()
                 mess.createPrint(
                     f"Simple Permutation of {numberN}: ", 
@@ -67,13 +88,13 @@ class Permutation:
         sumCases = 0
         dividend = 1
         listCases = []
-        formulaTop = "("
-        formulaBot = " "
         mess = M()
-
+        space_msg = " "*len(self.PermMain)
         mess.createPrint(
             'Composed Permutation #######',
-            "P' n1, n2 ..nn = (n1 + n2 + ..nn) / (n1)! (n2)! ..(nn)! ######"
+            f'{self.PermMain}{self.PermTop} ######',
+            f'{space_msg}{self.PermMid} ######',
+            f'{space_msg}{self.PermBot} ######'
         )
 
         try:
@@ -82,24 +103,29 @@ class Permutation:
                 listCases.append(int(input(f"###### Value for {case}° n: ").strip()))
                 sumCases += listCases[case-1]
 
-            for case in listCases:
-                factorial = F(case)
-                dividend *= factorial.CalculateFactorial()
-                formulaBot += f"{case}!  "
-
-                if listCases.index(case) == (len(listCases)-1):
-                    formulaTop += f"{case})!\n"
-                else:
-                    formulaTop += f"{case} + "
-
-            middle = "-"*(4*number) + "\n"
-            fullFormula = f"{formulaTop}{middle}{formulaBot}"
-            factorial.set_number(sumCases)
+            factorial = Facto(sumCases)
+            f_top, f_mid, f_bot = self.__create_formula_str(listCases, number, dividend)
             mess.createPrint(
                 f"Composed Permutation of {number} variables: ",
-                f"Formula: \n{fullFormula}",
+                "Formula:", f"{f_top}", f"{f_mid}", f"{f_bot}",
                 f"Result: {factorial.CalculateFactorial() / dividend}"
             )
 
         except Exception as e:
             print(f"Error: {e}")
+
+    def __create_formula_str(self, list_cases: list, number: int, dividend: int) -> str:
+        formulaTop = "("
+        formulaBot = " "
+        for case in list_cases:
+                factorial = Facto(case)
+                dividend *= factorial.CalculateFactorial()
+                formulaBot += f"{case}!  "
+
+                if list_cases.index(case) == (len(list_cases)-1):
+                    formulaTop += f"{case})!"
+                else:
+                    formulaTop += f"{case} + "
+
+        middle = "-"*(4*number)
+        return formulaTop, middle, formulaBot

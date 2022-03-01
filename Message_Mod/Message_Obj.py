@@ -28,18 +28,48 @@ class Message:
     """
     
     __messages = []
+    __PREFIX: str = '###### '
 
     def __init__(self) -> None:
         pass
     
-    def createPrint(self, *args) -> None:
+    @property
+    def Message(self) -> list:
         """[summary]
-        Creates a message and prints it.
+        Returns the list of messages.
+        Returns:
+            list: [The list of messages.]
         """
-        self.__delMessages()
-        for arg in args:
-            self.set_message(arg)
-        self.__printMessage(len(args))
+        return self.__getMessages()
+    
+    @Message.setter
+    def Message(self, text: str) -> None:
+        """[summary]
+        Adds a message into the list.
+        Args:
+            text (str): [The message to be added.]
+        """
+        self.__getMessages().append(text)
+    
+    def get_bigger_message(self) -> int:
+        """[summary]
+        Returns the bigger message.
+        Returns:
+            str: [The bigger message.]
+        """
+        return len(max(self.__getMessages(), key=len)) + len(self.__PREFIX)
+
+    def __print_symbols(self) -> str:
+        """[summary]
+        Prints the symbols.
+        Returns:
+            str: [The symbols.]
+        """
+        max_amount: int = self.get_bigger_message()
+        symbols: str = '#'
+        for i in range(max_amount):
+            symbols += '#'
+        return symbols
 
     def __printMessage(self, amount) -> None:
         """[summary]
@@ -47,10 +77,11 @@ class Message:
         Args:
             amount (int): [The amount of times that must print the messages.]
         """
-        print('\n##################################################')
+        symbols: str = self.__print_symbols()
+        print(f'\n{symbols}')
         for i in range(amount):
-            print(f"###### {self.__getMessages()[i]}")
-        print('##################################################')
+            print(f"{self.__PREFIX}{self.__getMessages()[i]}")
+        print(symbols)
     
     def __getMessages(self) -> list:
         """[summary]
@@ -60,17 +91,17 @@ class Message:
         """
         return self.__messages
 
-    def set_message(self, text: str) -> None:
-        """[summary]
-        Adds a message into the list.
-        Args:
-            text (str): [The message to be added.]
-        """
-        self.__getMessages().append(text)
-    
     def __delMessages(self) -> None:
         """[summary]
         Deletes all the messages from the list.
         """
         self.__messages.clear()
     
+    def createPrint(self, *args) -> None:
+        """[summary]
+        Creates a message and prints it.
+        """
+        self.__delMessages()
+        for arg in args:
+            self.Message = arg
+        self.__printMessage(len(args))
