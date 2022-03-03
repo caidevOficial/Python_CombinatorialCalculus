@@ -1,7 +1,7 @@
 <table>
     <tr>
         <td>
-            <img alt="Banner" src="https://github.com/caidevOficial/Resume/raw/main/media/pm/pageImgs/banner.gif" height="145px" />
+            <img alt="Banner" src="https://github.com/caidevOficial/Logos/blob/master/Personales/Personal_Logo_Gif.gif?raw=true" height="145px" />
         </td>
         <td>
             <img align="center" alt="Python" src="https://github.com/devicons/devicon/raw/master/icons/python/python-original.svg?raw=true" height="155px" />
