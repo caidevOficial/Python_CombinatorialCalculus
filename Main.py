@@ -28,13 +28,13 @@ from Variation_Mod.Variations_Obj import Variation as V
 from Message_Mod.Message_Obj import Message as M
 
 
-def PrintMenu() -> int:
+def print_menu() -> int:
     """
     Prints in console the menu of the app.
     """
     mess = M()
     option = 0
-    mess.createPrint(
+    mess.print_messages(
         "Select an option from the ones below",
         "1 - Simple Permutation.", 
         "2 - Simple Variation.", 
@@ -52,61 +52,60 @@ def PrintMenu() -> int:
         return option
 
 
-def SelectOperation(option: int) -> None:
+def __select_operation(option: int) -> None:
     """
     Receives an integer to do any of the 6 functions of the combinatorial calculus.
     """
     perm = P()
     vari = V()
     comb = C()
-    CleanScreen()
+    clean_screen()
     try:
         if option == 1:
-            perm.SimplePermutation()
+            perm.do_simple_permutation()
         elif option == 2:
-            vari.SimpleVariation()
+            vari.do_simple_variation()
         elif option == 3:
-            comb.SimpleCombinatory()
+            comb.do_simple_combinatory()
         elif option == 4:
-            perm.ComposedPermutation()
+            perm.do_composed_permutation()
         elif option == 5:
-            vari.CompoundVariation()
+            vari.do_compound_variation()
         elif option == 6:
-            comb.CompoundCombinatory()
+            comb.do_compound_combinatory()
         else:
             print("###### Invalid option selected, please try again.")
     except Exception as e:
         print(f"Error: {e}")
 
 
-def CleanScreen():
+def clean_screen():
     """
     Cleans the screen.
     """
     return lambda: os.system('cls')
 
 
-def CombinatorialCalculus():
+def do_combinatorial_calculus():
     appName = "Combinatorial Calculus"
-    version = "v1.5.12"
+    version = "v1.5.13"
     author = "Facu Falcone"
     continueExec = "y"
     mess = M()
 
     while continueExec == 'y':
-        mess.createPrint(
+        mess.print_messages(
             f"{appName}",
             f"{version}",
             f"by {author}."
         )
 
-        SelectOperation(PrintMenu())
+        __select_operation(print_menu())
 
         print("###### Write Y to do another calculus or N to close the app.")
-        continueExec = input("###### Your option (Y/N): ")
-        continueExec = continueExec.lower()
-        CleanScreen()
+        continueExec = input("###### Your option (Y/N): ").lower()
+        clean_screen()
 
 
 if __name__ == '__main__':
-    CombinatorialCalculus()
+    do_combinatorial_calculus()

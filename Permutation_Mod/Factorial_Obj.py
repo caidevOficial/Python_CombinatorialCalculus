@@ -30,7 +30,7 @@ class Factorial:
     Returns:
         [class]: [Factorial]
     """
-    __number: int = None
+    # __number: int = None
 
     def __init__(self, number: int) -> None:
         self.Number = number
@@ -60,7 +60,7 @@ class Factorial:
         else:
             self.__number = number
 
-    def CalculateFactorial(self) -> int:
+    def calculate_factorial(self) -> int:
         """
         Calculate the factorial of a positive integer
         https://en.wikipedia.org/wiki/Factorial
@@ -86,6 +86,6 @@ class Factorial:
         else:
             fact = self.Number
             self.Number = (fact - 1)
-            fact *= self.CalculateFactorial()
+            fact *= self.calculate_factorial()
 
             return fact

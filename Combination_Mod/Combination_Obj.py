@@ -31,17 +31,15 @@ class Combination:
         [class]: [Combination]
     """
 
-    __numberN = None
-    __numberK = None
-    __formula_top: str = None
-    __formula_bot: str = None
-    __formula_mid: str = None
-
     def __init__(self) -> None:
-        pass
+        self.__numberN = None
+        self.__numberK = None
+        self.__formula_top: str = None
+        self.__formula_bot: str = None
+        self.__formula_mid: str = None
 
     @property
-    def NumberN(self) -> int:
+    def Number_N(self) -> int:
         """[summary]\n
         Gets the total number of elements.
         Returns:
@@ -50,7 +48,7 @@ class Combination:
         return self.__numberN
 
     @property
-    def NumberK(self) -> int:
+    def Number_K(self) -> int:
         """[summary]\n
         Gets the number of elements that will be selected.
         Returns:
@@ -85,8 +83,8 @@ class Combination:
         """
         return self.__formula_mid
 
-    @NumberN.setter
-    def NumberN(self, numberN: int) -> None:
+    @Number_N.setter
+    def Number_N(self, numberN: int) -> None:
         """[summary]\n
         Sets the total number of elements.\n
         Args:
@@ -99,8 +97,8 @@ class Combination:
         else:
             raise ValueError("The value must be an integer")
     
-    @NumberK.setter
-    def NumberK(self, numberK: int) -> None:
+    @Number_K.setter
+    def Number_K(self, numberK: int) -> None:
         """[summary]\n
         Sets the number of elements that will be selected.\n
         Args:
@@ -168,32 +166,32 @@ class Combination:
         """[summary]\n
         Gets the numbers that the class will use.
         """
-        self.NumberN = int(input("###### Value for n: ").strip())
-        self.NumberK = int(input("###### Value for k: ").strip())
+        self.Number_N = int(input("###### Value for n: ").strip())
+        self.Number_K = int(input("###### Value for k: ").strip())
 
-    def SimpleCombinatory(self) -> None:
+    def do_simple_combinatory(self) -> None:
         """
         Calculate the simple combination of K elements from N total elements.
         Only Nature is important.
         """
         mess = M()
         try:
-            mess.createPrint(
+            mess.print_messages(
                 "Simple Combinatory #######",
                 "C(n, k) ######"
             )
 
             self.__input_numbers()
 
-            n = F(self.NumberN).CalculateFactorial()
-            k = F(self.NumberK).CalculateFactorial() * F((self.NumberN - self.NumberK)).CalculateFactorial()
+            n = F(self.Number_N).calculate_factorial()
+            k = F(self.Number_K).calculate_factorial() * F((self.Number_N - self.Number_K)).calculate_factorial()
 
-            self.Formula_Bot = f'( {self.NumberK}! * ({self.NumberN-self.NumberK})! )'
+            self.Formula_Bot = f'( {self.Number_K}! * ({self.Number_N-self.Number_K})! )'
             self.Formula_Mid = '_' * len(self.Formula_Bot)
-            self.Formula_Top = self.__create_spaces_by_guide(str(self.NumberN), self.Formula_Mid)
+            self.Formula_Top = self.__create_spaces_by_guide(str(self.Number_N), self.Formula_Mid)
 
-            mess.createPrint(
-                f"Simple Combination of C({self.NumberN},{self.NumberK}): ",
+            mess.print_messages(
+                f"Simple Combination of C({self.Number_N},{self.Number_K}): ",
                 f"Formula:",
                 f'{self.Formula_Top}',
                 f'{self.Formula_Mid}',
@@ -202,36 +200,36 @@ class Combination:
             )
 
         except Exception as e:
-            mess.createPrint(f"Error: {e}")
+            mess.print_messages(f"Error: {e}")
 
-    def CompoundCombinatory(self) -> None:
+    def do_compound_combinatory(self) -> None:
         """
         Calculate the simple combination of K elements from N total elements, being able to repeat.
         Only Nature is important.
         """
         mess = M()
         try:
-            mess.createPrint(
+            mess.print_messages(
                 "Compound Combinatory #######", 
                 "C(n, k) ######"
             )
 
             self.__input_numbers()
             
-            n: int = self.NumberN + (self.NumberK - 1)
-            k: int = F(self.NumberN - 1).CalculateFactorial() * F(self.NumberK).CalculateFactorial()
+            n: int = self.Number_N + (self.Number_K - 1)
+            k: int = F(self.Number_N - 1).calculate_factorial() * F(self.Number_K).calculate_factorial()
 
-            self.Formula_Top = f'({self.NumberN} + {self.NumberK} - 1)'
+            self.Formula_Top = f'({self.Number_N} + {self.Number_K} - 1)'
             self.Formula_Mid = '_' * len(self.Formula_Top)
-            self.Formula_Bot = f'({self.NumberN} - 1)! {self.NumberK}!'
+            self.Formula_Bot = f'({self.Number_N} - 1)! {self.Number_K}!'
 
-            mess.createPrint(
-                f"Compound Combination of C({self.NumberN},{self.NumberK}): ",
+            mess.print_messages(
+                f"Compound Combination of C({self.Number_N},{self.Number_K}): ",
                 f"Formula:",
                 f'{self.Formula_Top}',
                 f'{self.Formula_Mid}',
                 f'{self.Formula_Bot}',
-                f"Result: {F(n).CalculateFactorial()/k}"
+                f"Result: {F(n).calculate_factorial()/k}"
             )
 
         except Exception as e:

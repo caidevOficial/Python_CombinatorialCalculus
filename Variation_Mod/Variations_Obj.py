@@ -30,19 +30,17 @@ class Variation:
         [class]: [Variation]
     """
 
-    __number_n = 0
-    __number_k = 0
-    __dividend = 0
-    __divisor = 0
-    __formula_top = ''
-    __formula_mid = ''
-    __formula_bot = ''
-
     def __init__(self) -> None:
-        pass
+        self.__number_n = 0
+        self.__number_k = 0
+        self.__dividend = 0
+        self.__divisor = 0
+        self.__formula_top = ''
+        self.__formula_mid = ''
+        self.__formula_bot = ''
 
     @property
-    def NumberN(self) -> int:
+    def Number_N(self) -> int:
         """[summary]
         Getter for the number of elements of the variation.
         Returns:
@@ -51,7 +49,7 @@ class Variation:
         return self.__number_n
     
     @property
-    def NumberK(self) -> int:
+    def Number_K(self) -> int:
         """[summary]
         Getter for the number of elements that want take from \n
         the total elements of the variation.
@@ -105,8 +103,8 @@ class Variation:
         """
         return self.__formula_bot
 
-    @NumberN.setter
-    def NumberN(self, numberN: int) -> None:
+    @Number_N.setter
+    def Number_N(self, numberN: int) -> None:
         """[summary]\n
         Setter for the number of elements of the variation.\n
         Arguments:
@@ -114,8 +112,8 @@ class Variation:
         """
         self.__number_n = numberN
 
-    @NumberK.setter
-    def NumberK(self, numberK: int) -> None:
+    @Number_K.setter
+    def Number_K(self, numberK: int) -> None:
         """[summary]\n
         Setter for the number of elements that want take from \n
         the total elements of the variation.\n
@@ -179,29 +177,29 @@ class Variation:
         final_string = f'{" "*total_spaces}{formu}!{" "*total_spaces}'
         return final_string
 
-    def SimpleVariation(self) -> None:
+    def do_simple_variation(self) -> None:
         """
         Calculates the amount of variations of 'n' elements from 'k' elements.
         Order and nature are important.
         """
         mess = M()
-        mess.createPrint(
+        mess.print_messages(
             "Simple Variation #######", 
             "V(n, k) ######"
         )
 
         try:
-            self.NumberN = int(input("###### Value for n: ").strip())
-            self.NumberK = int(input("###### Value for k: ").strip())
-            self.Dividend = F(self.NumberN).CalculateFactorial()
-            self.Divisor = F((self.NumberN - self.NumberK)).CalculateFactorial()
-            self.Formula_Bot = f'({self.NumberN} - {self.NumberK})!'
+            self.Number_N = int(input("###### Value for n: ").strip())
+            self.Number_K = int(input("###### Value for k: ").strip())
+            self.Dividend = F(self.Number_N).calculate_factorial()
+            self.Divisor = F((self.Number_N - self.Number_K)).calculate_factorial()
+            self.Formula_Bot = f'({self.Number_N} - {self.Number_K})!'
             self.Formula_Mid = '_' * len(self.Formula_Bot)
-            self.Formula_Top = self.__create_spaces_by_guide(str(self.NumberN), str(self.Formula_Mid))
+            self.Formula_Top = self.__create_spaces_by_guide(str(self.Number_N), str(self.Formula_Mid))
 
 
-            mess.createPrint(
-                f"Simple Variation of V({self.NumberN}, {self.NumberK}):",
+            mess.print_messages(
+                f"Simple Variation of V({self.Number_N}, {self.Number_K}):",
                 f"Formula:",
                 f"{self.Formula_Top}",
                 f"{self.Formula_Mid}",
@@ -211,25 +209,25 @@ class Variation:
         except Exception as e:
             print(f"Error: {e}")
 
-    def CompoundVariation(self) -> None:
+    def do_compound_variation(self) -> None:
         """
         It calculates the number of variations of 'n' elements of 'k' elements, being able to repeat.
         Order and nature are important
         """
         mess = M()
-        mess.createPrint(
+        mess.print_messages(
             "Compound Variation #######",
             "V'(n, k) ######"
         )
         try:
-            self.NumberN = int(input("###### Amount of total elements [n]: ").strip())
-            self.NumberK = int(input("###### Amount of element to take [k]: ").strip())
-            self.Formula_Top = f'{self.NumberN}^{self.NumberK}'
+            self.Number_N = int(input("###### Amount of total elements [n]: ").strip())
+            self.Number_K = int(input("###### Amount of element to take [k]: ").strip())
+            self.Formula_Top = f'{self.Number_N}^{self.Number_K}'
 
-            mess.createPrint(
-                f"Compound Variation of V'({self.NumberN}, {self.NumberK}):",
+            mess.print_messages(
+                f"Compound Variation of V'({self.Number_N}, {self.Number_K}):",
                 f"Formula: {self.Formula_Top}",
-                f"Result: {pow(self.NumberN, self.NumberK)}"
+                f"Result: {pow(self.Number_N, self.Number_K)}"
             )
         except Exception as e:
             print(f"Error: {e}")

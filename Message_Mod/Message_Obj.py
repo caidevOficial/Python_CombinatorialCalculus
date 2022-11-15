@@ -27,11 +27,10 @@ class Message:
         [class]: [Message]
     """
     
-    __messages = []
     __PREFIX: str = '###### '
 
     def __init__(self) -> None:
-        pass
+        self.__messages = list[str]()
     
     @property
     def Message(self) -> list:
@@ -71,7 +70,7 @@ class Message:
             symbols += '#'
         return symbols
 
-    def __printMessage(self, amount) -> None:
+    def __printMessage(self, amount: int) -> None:
         """[summary]
         Prints the messages 'amount' times.
         Args:
@@ -97,7 +96,7 @@ class Message:
         """
         self.__messages.clear()
     
-    def createPrint(self, *args) -> None:
+    def print_messages(self, *args) -> None:
         """[summary]
         Creates a message and prints it.
         """

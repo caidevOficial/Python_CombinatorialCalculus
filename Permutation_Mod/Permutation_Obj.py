@@ -31,13 +31,11 @@ class Permutation:
         [class]: [Permutation]
     """
 
-    __PERM_MAIN: str = "P' n1, n2 ..nn = "
-    __PERM_TOP:str = " (n1 + n2 + ..nn) "
-    __PERM_MID: str = '_'*len(__PERM_TOP)
-    __PERM_BOT:str = "(n1)! (n2)!..(nn)!"
-
     def __init__(self):
-        pass
+        self.__PERM_MAIN: str = "P' n1, n2 ..nn = "
+        self.__PERM_TOP:str = " (n1 + n2 + ..nn) "
+        self.__PERM_MID: str = '_'*len(self.__PERM_TOP)
+        self.__PERM_BOT:str = "(n1)! (n2)!..(nn)!"
 
     @property
     def PermMain(self):
@@ -55,13 +53,13 @@ class Permutation:
     def PermBot(self):
         return self.__PERM_BOT
 
-    def SimplePermutation(self):
+    def do_simple_permutation(self):
         """
         Calculates the simple permutation of n. Only the order is important.
         """
         mess = M()
         try:
-            mess.createPrint(
+            mess.print_messages(
                 'Simple Permutation #######', 
                 "Pn = n! ######"
             )
@@ -69,8 +67,8 @@ class Permutation:
             numberN = int(input("###### Value for n: ").strip())
             try:
                 factorial = Facto(numberN)
-                fact = factorial.CalculateFactorial()
-                mess.createPrint(
+                fact = factorial.calculate_factorial()
+                mess.print_messages(
                     f"Simple Permutation of {numberN}: ", 
                     f"Formula: {numberN}!", 
                     f"Result: {fact}"
@@ -81,7 +79,7 @@ class Permutation:
         except Exception as e:
             print(f"Error: {e}")
 
-    def ComposedPermutation(self):
+    def do_composed_permutation(self):
         """
         Calculates the permutation according to the number of differents variables. Only the order is important.
         """
@@ -90,7 +88,7 @@ class Permutation:
         listCases = []
         mess = M()
         space_msg = " "*len(self.PermMain)
-        mess.createPrint(
+        mess.print_messages(
             'Composed Permutation #######',
             f'{self.PermMain}{self.PermTop} ######',
             f'{space_msg}{self.PermMid} ######',
@@ -105,10 +103,10 @@ class Permutation:
 
             factorial = Facto(sumCases)
             f_top, f_mid, f_bot = self.__create_formula_str(listCases, number, dividend)
-            mess.createPrint(
+            mess.print_messages(
                 f"Composed Permutation of {number} variables: ",
                 "Formula:", f"{f_top}", f"{f_mid}", f"{f_bot}",
-                f"Result: {factorial.CalculateFactorial() / dividend}"
+                f"Result: {factorial.calculate_factorial() / dividend}"
             )
 
         except Exception as e:
@@ -119,7 +117,7 @@ class Permutation:
         formulaBot = " "
         for case in list_cases:
                 factorial = Facto(case)
-                dividend *= factorial.CalculateFactorial()
+                dividend *= factorial.calculate_factorial()
                 formulaBot += f"{case}!  "
 
                 if list_cases.index(case) == (len(list_cases)-1):

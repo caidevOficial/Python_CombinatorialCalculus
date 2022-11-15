@@ -46,7 +46,7 @@ def ShowNewSkill():
     <th>Menu of the App</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/menu_app.png">
+            <img alt= "Menu" src="assets/img/menu_app.png">
         </td>
     </tr>
 </table>
@@ -56,7 +56,7 @@ def ShowNewSkill():
     <th>Simple Permutation's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/SPF.png" height="80px">
+            <img alt= "Menu" src="assets/img/SPF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -66,7 +66,7 @@ def ShowNewSkill():
     <th>Simple Variation's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/SVF.png" height="80px">
+            <img alt= "Menu" src="assets/img/SVF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -76,7 +76,7 @@ def ShowNewSkill():
     <th>Simple Combination's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/SCF.png" height="80px">
+            <img alt= "Menu" src="assets/img/SCF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -86,7 +86,7 @@ def ShowNewSkill():
     <th>Compound Permutation's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/CPF.png" height="80px">
+            <img alt= "Menu" src="assets/img/CPF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -96,7 +96,7 @@ def ShowNewSkill():
     <th>Compound Variation's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/CVF.png" height="80px">
+            <img alt= "Menu" src="assets/img/CVF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -106,7 +106,7 @@ def ShowNewSkill():
     <th>Compound Combination's Formula</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/CCF.png" height="80px">
+            <img alt= "Menu" src="assets/img/CCF.png" height="80px">
         </td>
     </tr>
 </table>
@@ -117,7 +117,7 @@ When using each of the methods, the application will show you the chosen variabl
     <th>Compound Permutation's Sample</th>
     <tr>
         <td>
-            <img alt= "Menu" src="Media/img/CP_sample.jpeg" height="200px">
+            <img alt= "Menu" src="assets/img/CP_sample.jpeg" height="200px">
         </td>
     </tr>
 </table>
@@ -146,7 +146,7 @@ You can find the differents versions or releases in the following link -> [Relea
         <img class="circular" alt="Facu" src="https://avatars1.githubusercontent.com/u/12877139?s=400&u=d369ee24466653d9bbeeb9654930e3ff1c67b76a&v=4" width="80px" height="80px" />
       </td>
     </tr>
-    <th><center>🤴 Facu Falcone - Junior Developer</center></th>
+    <th><center>🤴 Facu Falcone - Data Engineer</center></th>
     </theader>
     <tbody>
     <tr align='center'>
